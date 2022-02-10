@@ -1,13 +1,13 @@
 # ApacheToreeOnWin
-Apache Toree installed on windows
+Apache Toree installed on Windows
 
 
 
 Requiriments
 -------------------------
-Microsoft Visual C++ build tools
-Docker
-GNU Make
+* Microsoft Visual C++ build tools
+* Docker
+* GNU Make
 
 
 
@@ -41,7 +41,7 @@ cd dist/toree-pip/
 python setup.py install
 ```
 
-Install the jupyter kernel. I call this one `toree_spark` to differentiate from any others you may have.
+Install the jupyter kernel. I've called  `toree_spark`.
 Be sure to change the value of `--spark-home` to yours.
 
 ```
@@ -58,14 +58,14 @@ Getting path from jupyter
 jupyter kernelspec list
 ```
 
-Adjusting file run.cmd with the path 
+Adjusting file `run.cmd` with the path 
 
-Copy run.cmd to path\bin
+Copy `run.cmd` to path\bin
 
 
-In the path, editing kernel.json file
+In the path, editing `kernel.json` file
 
-change run.sh for run.cmd
+change `run.sh` for run.cmd
 
 Now launch Jupyter with
 
@@ -73,7 +73,16 @@ Now launch Jupyter with
 jupyter notebook
 ```
 
+Add Delta Format support to Apache Toree
+-------------------------
 
+Inside `kernel.json` file option "__TOREE_SPARK_OPTS__": "" it must be changed by 
+
+```
+"__TOREE_SPARK_OPTS__": "--packages io.delta:delta-core_2.12:0.8.0 --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog",
+```
+
+Aditional copy delta JARs to `%SPARK_HOME%\jar`
 
 Other useful command
 -------------------------
