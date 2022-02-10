@@ -1,4 +1,4 @@
-# ApacheToreeOnWin
+# Apache Toree on Windows with support for Delta Format
 Apache Toree installed on Windows
 
 
@@ -65,7 +65,7 @@ Copy `run.cmd` to path\bin
 
 In the path, editing `kernel.json` file
 
-change `run.sh` for run.cmd
+change `run.sh` for `run.cmd`
 
 Now launch Jupyter with
 
@@ -76,10 +76,10 @@ jupyter notebook
 Add Delta Format support to Apache Toree
 -------------------------
 
-Inside `kernel.json` file option "__TOREE_SPARK_OPTS__": "" it must be changed by 
+Inside `kernel.json` file option `"__TOREE_SPARK_OPTS__": ""` it must be changed by 
 
 ```
-"__TOREE_SPARK_OPTS__": "--packages io.delta:delta-core_2.12:0.8.0 --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog",
+"__TOREE_SPARK_OPTS__": "--packages io.delta:delta-core_2.12:0.8.0 --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
 ```
 
 Aditional copy delta JARs to `%SPARK_HOME%\jar`
