@@ -3,18 +3,11 @@ Apache Toree installed on windows
 
 
 
-jupyter kernelspec list
-
-
-jupyter kernelspec uninstall unwanted-kernel
-
-
 Requiriments
 -------------------------
 Microsoft Visual C++ build tools
 Docker
 GNU Make
-
 
 
 
@@ -55,10 +48,39 @@ Be sure to change the value of `--spark-home` to yours.
 jupyter toree install --kernel_name=toree_spark --spark_home=c:/spark/   --user
 ```
 
+
+Configuration
+-------------------------
+
+Getting path from jupyter
+
+```
+jupyter kernelspec list
+```
+
+Adjusting file run.cmd with the path 
+
+Copy run.cmd to path\bin
+
+
+In the path, editing kernel.json file
+
+change run.sh for run.cmd
+
 Now launch Jupyter with
 
 ```
 jupyter notebook
+```
+
+
+
+Other useful command
+-------------------------
+Unistall kernel from Jupyter
+
+```
+jupyter kernelspec uninstall unwanted-kernel
 ```
 
 
